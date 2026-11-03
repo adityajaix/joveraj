@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Joviraj Studios | Upcoming 3D Educational Games & Interactive Prototypes</title>
+  <meta name="description" content="Joviraj Studios is building next-generation 3D educational games in chess, eco-farming, space physics, and coding logic. Try our playable 3D in-browser prototypes!">
+  <meta name="keywords" content="3D educational games, educational chess, 3D farming game, STEM games, CSS 3D, browser game prototypes">
+  <meta property="og:title" content="Joviraj 3D Studios | Next-Gen 3D Educational Games">
+  <meta property="og:description" content="Experience educational games in 3D. Play our in-browser 3D Chess Tactics Lab and 3D Eco-Farming simulator prototypes today!">
+  <meta property="og:type" content="website">
+  
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       Floating Parallax 3D Background Layer
+       ======================================================================== -->
+  <div class="parallax-bg-layer" aria-hidden="true">
+    <div class="floating-3d-shape" style="top: 15%; left: 8%; font-size: 3.5rem;">♟️</div>
+    <div class="floating-3d-shape" style="top: 25%; right: 10%; font-size: 3.2rem; animation-delay: -3s;">🌾</div>
+    <div class="floating-3d-shape" style="top: 55%; left: 5%; font-size: 3.8rem; animation-delay: -6s;">🪐</div>
+    <div class="floating-3d-shape" style="top: 70%; right: 8%; font-size: 3.4rem; animation-delay: -9s;">🧩</div>
+  </div>
+
+  <!-- Confetti Canvas Overlay -->
+  <canvas id="confetti-canvas" style="position: fixed; inset: 0; pointer-events: none; z-index: 999;"></canvas>
+
+  <!-- ========================================================================
+       Site Header & Sticky Navigation
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container header-container">
+      <a href="#hero" class="brand-logo" aria-label="Joviraj Studios Home">
+        <div class="brand-icon-3d">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <span>Joviraj</span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
+        <a href="#chess-lab" class="nav-link">Play 3D Chess</a>
+        <a href="#farm-lab" class="nav-link">Play 3D Eco-Farm</a>
+        <a href="#upcoming-games" class="nav-link">3D Games</a>
+        <a href="#roadmap" class="nav-link">Roadmap</a>
+        <a href="#vision" class="nav-link">Vision</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Dark and Light Mode" title="Toggle theme">
+          <span id="theme-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </button>
+
+        <a href="#waitlist" class="btn btn-primary btn-sm btn-3d">Join Beta</a>
+
+        <button id="mobile-nav-toggle" class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ======================================================================
+         Hero Section with 3D Holographic Cube & Parallax
+         ====================================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge-pill">
+              <span class="hero-badge-dot"></span>
+              <span>3D Educational Game Studio • In Development</span>
+            </div>
+
+            <h1 class="hero-headline">
+              Spatial Learning in 3D: <br>
+              <span class="text-gradient">Chess, Farming, and Science</span>
+            </h1>
+
+            <p class="hero-subhead">
+              We’re building immersive, three-dimensional learning games that transform spatial logic, ecological cycles, and math into hands-on 3D worlds. Test our live browser prototypes below and join the early playtest waitlist!
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#chess-lab" class="btn btn-primary btn-lg btn-3d">
+                <span>♟️</span> Play 3D Chess Lab
+              </a>
+              <a href="#farm-lab" class="btn btn-secondary btn-lg">
+                <span>🌾</span> Play 3D Eco-Farm
+              </a>
+            </div>
+
+            <div class="hero-notice-bar">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--color-secondary); flex-shrink: 0;">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+              <span><strong>Official pre-launch:</strong> Full games are in active development. Try our live in-browser 3D prototypes and subscribe for alpha updates.</span>
+            </div>
+          </div>
+
+          <!-- Hero 3D Stage Card with Animated 3D CSS Cube -->
+          <div class="hero-stage-card-3d">
+            <div class="hero-stage-header">
+              <span style="font-weight: 800; font-size: 0.95rem; display: flex; align-items: center; gap: 0.5rem;">
+                <span style="color: var(--color-primary);">🎲</span> 3D Spatial Engine Sandbox
+              </span>
+              <span style="font-size: 0.75rem; font-weight: 800; color: var(--color-accent-green); text-transform: uppercase;">
+                CSS 3D Active
+              </span>
+            </div>
+
+            <div class="hero-isometric-viewport">
+              <!-- Animated Pure CSS 3D Cube -->
+              <div class="cube-3d-scene">
+                <div class="cube-face cube-front">♞</div>
+                <div class="cube-face cube-back">🌱</div>
+                <div class="cube-face cube-right">📐</div>
+                <div class="cube-face cube-left">⚡</div>
+                <div class="cube-face cube-top">🪐</div>
+                <div class="cube-face cube-bottom">🧬</div>
+              </div>
+            </div>
+
+            <div class="hero-stage-badge-pop">
+              <span>✨</span>
+              <span>Real-Time 3D Perspective & Transforms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3D Interactive Game 1: Educational Chess Tactics Lab
+         ====================================================================== -->
+    <section class="section chess-section" id="chess-lab">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="badge-tag badge-primary">Playable 3D Prototype 1</span>
+          <h2 class="section-title">3D Chess Tactics & Spatial Geometry Lab</h2>
+          <p class="section-desc">
+            Chess is pure geometry and spatial reasoning. Test your tactical eye on our interactive 3D isometric board. Click the pieces to evaluate candidate jump vectors!
+          </p>
+        </div>
+
+        <div class="chess-interactive-layout">
+          <!-- 3D Isometric Chessboard Stage -->
+          <div class="chess-board-stage">
+            <div class="chessboard-3d" id="chessboard-3d">
+              <!-- Dynamically populated 4x4 3D tiles via js/main.js -->
+            </div>
+          </div>
+
+          <!-- Chess Controls & Pedagogical Insights Card -->
+          <div class="chess-controls-card">
+            <div class="chess-info-header">
+              <h3 id="chess-puzzle-title" style="font-size: 1.25rem; font-weight: 850;">
+                Puzzle 1: The Knight's L-Shape Fork
+              </h3>
+              <span class="badge-tag badge-secondary" style="margin: 0; font-size: 0.72rem;">Spatial Logic</span>
+            </div>
+
+            <div class="chess-instruction-box">
+              <p id="chess-objective" style="font-size: 0.95rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.4rem;">
+                White Knight (♘) must fork Black King (♚) and Black Queen (♛) simultaneously!
+              </p>
+              <p id="chess-pedagogy" style="font-size: 0.85rem; color: var(--color-text-secondary); line-height: 1.5;">
+                💡 Spatial Geometry: Knight moves (2,1) or (1,2) in vector space.
+              </p>
+            </div>
+
+            <div class="chess-feedback-msg" id="chess-feedback">
+              Click the White Knight (♘) to view candidate vector jumps:
+            </div>
+
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+              <button class="btn btn-secondary btn-sm" id="chess-reset-btn">
+                ↺ Reset Puzzle
+              </button>
+              <button class="btn btn-accent btn-sm" id="chess-next-btn" style="display: none;">
+                Next 3D Chess Puzzle ➔
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3D Interactive Game 2: 3D Eco-Farming & Biome Simulator
+         ====================================================================== -->
+    <section class="section farm-section" id="farm-lab">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="badge-tag badge-green">Playable 3D Prototype 2</span>
+          <h2 class="section-title">3D Eco-Farm: Agriculture & Ecosystems</h2>
+          <p class="section-desc">
+            Balance soil aeration, capillary hydration, and photosynthesis on an interactive 3D farm plot. Learn how regenerative agriculture sustains living biomes!
+          </p>
+        </div>
+
+        <div class="farm-interactive-layout">
+          <!-- 3D Isometric Farm Grid Stage -->
+          <div class="farm-board-stage">
+            <div class="farm-grid-3d" id="farm-grid-3d">
+              <!-- Dynamically populated 3x3 3D farm soil tiles via js/main.js -->
+            </div>
+          </div>
+
+          <!-- Farm Tool HUD & Scientific Learning Card -->
+          <div class="farm-controls-card">
+            <div class="chess-info-header">
+              <h3 style="font-size: 1.25rem; font-weight: 850; display: flex; align-items: center; gap: 0.5rem;">
+                <span>🌾</span> Eco-Farming Field Simulator
+              </h3>
+              <span class="badge-tag badge-green" style="margin: 0; font-size: 0.72rem;">Photosynthesis & Soil</span>
+            </div>
+
+            <!-- Eco Metrics HUD -->
+            <div class="farm-metrics-row">
+              <div class="farm-metric-box">
+                <span style="display: block; font-size: 0.7rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">Eco-Score</span>
+                <span id="farm-eco-score" style="font-size: 1.35rem; font-weight: 900; color: var(--color-primary);">150</span>
+              </div>
+              <div class="farm-metric-box">
+                <span style="display: block; font-size: 0.7rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">Harvest Yield</span>
+                <span id="farm-harvest-yield" style="font-size: 1.35rem; font-weight: 900; color: var(--color-accent-green);">12 bu</span>
+              </div>
+              <div class="farm-metric-box">
+                <span style="display: block; font-size: 0.7rem; font-weight: 700; color: var(--color-text-muted); text-transform: uppercase;">Water Tank</span>
+                <span id="farm-water-reserve" style="font-size: 1.35rem; font-weight: 900; color: var(--color-accent-teal);">85%</span>
+              </div>
+            </div>
+
+            <!-- 3D Agricultural Tool Palette -->
+            <p style="font-size: 0.85rem; font-weight: 700; color: var(--color-text); margin-bottom: 0.4rem;">
+              Select Ecological Tool, then click any soil plot in the 3D grid:
+            </p>
+            <div class="farm-tool-selector">
+              <button class="tool-btn-3d" data-tool="seed">
+                <span>🌰</span> 1. Plant Seeds
+              </button>
+              <button class="tool-btn-3d active" data-tool="water">
+                <span>💧</span> 2. Irrigate Water
+              </button>
+              <button class="tool-btn-3d" data-tool="sun">
+                <span>☀️</span> 3. Solar Growth
+              </button>
+              <button class="tool-btn-3d" data-tool="harvest">
+                <span>🌾</span> 4. Harvest Crop
+              </button>
+            </div>
+
+            <!-- Science Insights Feedback Box -->
+            <div class="chess-instruction-box">
+              <p id="farm-feedback" style="font-size: 0.92rem; color: var(--color-text); line-height: 1.5;">
+                Select a tool and interact with any plot on the 3D grid to observe plant biology and ecosystem feedback!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Upcoming 3D Games Showcase (3D Tilted Cards)
+         ====================================================================== -->
+    <section class="section" id="upcoming-games">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="badge-tag badge-primary">3D Game Universe</span>
+          <h2 class="section-title">Upcoming 3D Educational Titles</h2>
+          <p class="section-desc">
+            Explore the titles in our development pipeline. Every game features full 3D spatial gameplay designed to build intuition in math, physics, biology, and computer science.
+          </p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="games-filter-nav" role="tablist" aria-label="3D Game Categories">
+          <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All 3D Titles (4)</button>
+          <button class="filter-tab" data-filter="chess" role="tab" aria-selected="false">Strategy & Chess</button>
+          <button class="filter-tab" data-filter="farm" role="tab" aria-selected="false">Farming & Biomes</button>
+          <button class="filter-tab" data-filter="math" role="tab" aria-selected="false">Space & Physics</button>
+          <button class="filter-tab" data-filter="code" role="tab" aria-selected="false">Coding & Logic</button>
+        </div>
+
+        <!-- 3D Cards Grid -->
+        <div class="games-grid" id="games-grid">
+          
+          <!-- Game 1: Grandmaster Quest 3D (Chess) -->
+          <article class="game-card-3d" data-category="chess">
+            <div class="game-banner" style="background: var(--gradient-card-chess);">
+              <div class="game-banner-icon">♟️</div>
+              <span class="badge-status badge-dev" style="position: absolute; bottom: 1.25rem; left: 1.25rem;">
+                Phase: Active Prototyping
+              </span>
+            </div>
+            <div class="game-card-content">
+              <div class="game-meta-top">
+                <span>Spatial Strategy & Mathematics</span>
+                <span style="font-weight: 700; color: var(--color-primary);">Target: All Ages</span>
+              </div>
+              <h3 class="game-card-title">Grandmaster Quest 3D</h3>
+              <p class="game-card-desc">
+                Learn grandmaster tactical patterns, piece coordination, and board visualization through isometric 3D story challenges and interactive mini-puzzles.
+              </p>
+              <div class="game-card-features">
+                <span class="feature-pill">Isometric 3D Boards</span>
+                <span class="feature-pill">Coordinate Geometry</span>
+                <span class="feature-pill">Tactical Forks & Pins</span>
+              </div>
+              <div class="game-card-footer">
+                <button class="btn btn-secondary btn-sm preview-game-btn" 
+                        data-title="Grandmaster Quest 3D" 
+                        data-desc="Grandmaster Quest 3D merges fantasy tactical adventures with real chess theory. Visualizes board control lines, piece tension, and coordinate vectors in intuitive 3D space."
+                        data-badge="Status: Mechanics & Engine Testing">
+                  Concept Notes
+                </button>
+                <a href="#chess-lab" class="btn btn-primary btn-sm">Try Lab</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Game 2: EcoTerra 3D Farming -->
+          <article class="game-card-3d" data-category="farm">
+            <div class="game-banner" style="background: var(--gradient-card-farm);">
+              <div class="game-banner-icon">🌾</div>
+              <span class="badge-status badge-dev" style="position: absolute; bottom: 1.25rem; left: 1.25rem;">
+                Phase: Prototype Testing
+              </span>
+            </div>
+            <div class="game-card-content">
+              <div class="game-meta-top">
+                <span>Agriculture & Soil Science</span>
+                <span style="font-weight: 700; color: var(--color-accent-green);">Target: Ages 8–15</span>
+              </div>
+              <h3 class="game-card-title">EcoTerra 3D Farming</h3>
+              <p class="game-card-desc">
+                Construct thriving agricultural biomes. Balance nitrogen cycles, pollinator biodiversity, weather patterns, and solar irrigation in a living 3D world.
+              </p>
+              <div class="game-card-features">
+                <span class="feature-pill">Regenerative Farming</span>
+                <span class="feature-pill">Photosynthesis Engine</span>
+                <span class="feature-pill">Weather & Aquifers</span>
+              </div>
+              <div class="game-card-footer">
+                <button class="btn btn-secondary btn-sm preview-game-btn" 
+                        data-title="EcoTerra 3D Farming" 
+                        data-desc="A full 3D isometric farming and ecology simulator where players experience the science of agriculture: soil microbiome health, organic rotation, and water conservation."
+                        data-badge="Status: Prototype Testing">
+                  Concept Notes
+                </button>
+                <a href="#farm-lab" class="btn btn-primary btn-sm">Try Lab</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Game 3: AstroMath 3D -->
+          <article class="game-card-3d" data-category="math">
+            <div class="game-banner" style="background: var(--gradient-card-math);">
+              <div class="game-banner-icon">🪐</div>
+              <span class="badge-status badge-concept" style="position: absolute; bottom: 1.25rem; left: 1.25rem;">
+                Phase: Pre-Alpha
+              </span>
+            </div>
+            <div class="game-card-content">
+              <div class="game-meta-top">
+                <span>Orbital Physics & 3D Vectors</span>
+                <span style="font-weight: 700; color: var(--color-secondary);">Target: Ages 9–16</span>
+              </div>
+              <h3 class="game-card-title">AstroMath 3D Odyssey</h3>
+              <p class="game-card-desc">
+                Pilot starships through asteroid belts and planetary rings by calculating 3D velocity vectors, fractions, and gravitational slingshot mechanics.
+              </p>
+              <div class="game-card-features">
+                <span class="feature-pill">3D Vector Navigation</span>
+                <span class="feature-pill">Orbital Gravitation</span>
+                <span class="feature-pill">Algebraic Thrusters</span>
+              </div>
+              <div class="game-card-footer">
+                <button class="btn btn-secondary btn-sm preview-game-btn" 
+                        data-title="AstroMath 3D Odyssey" 
+                        data-desc="Explore planets and celestial bodies while mastering fractions, Cartesian 3D coordinates, and orbital velocity equations."
+                        data-badge="Status: Math Model Balancing">
+                  Concept Notes
+                </button>
+                <a href="#waitlist" class="btn btn-primary btn-sm">Follow Dev</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Game 4: CyberBug 3D Matrix -->
+          <article class="game-card-3d" data-category="code">
+            <div class="game-banner" style="background: var(--gradient-card-code);">
+              <div class="game-banner-icon">🧩</div>
+              <span class="badge-status badge-concept" style="position: absolute; bottom: 1.25rem; left: 1.25rem;">
+                Phase: Conceptual Design
+              </span>
+            </div>
+            <div class="game-card-content">
+              <div class="game-meta-top">
+                <span>Computer Science & Spatial Logic</span>
+                <span style="font-weight: 700; color: var(--color-accent-teal);">Target: Ages 10+</span>
+              </div>
+              <h3 class="game-card-title">CyberBug 3D Matrix</h3>
+              <p class="game-card-desc">
+                Navigate complex 3D server labyrinths by coding algorithmic routing logic, recursive pathways, and logic gates to debug glitch entities.
+              </p>
+              <div class="game-card-features">
+                <span class="feature-pill">3D Mazes & Recursion</span>
+                <span class="feature-pill">Logic Gates</span>
+                <span class="feature-pill">Algorithmic Pathways</span>
+              </div>
+              <div class="game-card-footer">
+                <button class="btn btn-secondary btn-sm preview-game-btn" 
+                        data-title="CyberBug 3D Matrix" 
+                        data-desc="Teaches algorithmic architecture in 3D multi-level environments where players guide drones through logic pipelines."
+                        data-badge="Status: Design Documents">
+                  Concept Notes
+                </button>
+                <a href="#waitlist" class="btn btn-primary btn-sm">Follow Dev</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3D Tech & Development Roadmap
+         ====================================================================== -->
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="badge-tag badge-primary">Development Journey</span>
+          <h2 class="section-title">3D Engine & Release Roadmap</h2>
+          <p class="section-desc">
+            We are building lightweight, zero-download 3D educational game engines that run silky smooth in any modern browser. Here is our roadmap:
+          </p>
+        </div>
+
+        <div class="roadmap-grid">
+          
+          <div class="roadmap-card-3d current">
+            <span class="roadmap-step-badge step-active">Phase 1 • Active</span>
+            <h3 class="roadmap-heading">3D Mechanics Prototyping</h3>
+            <p style="font-size: 0.9375rem; color: var(--color-text-secondary); line-height: 1.5;">
+              Designing playable 3D chess isometric puzzles and 3D eco-farming loops. Testing browser performance and spatial controls.
+            </p>
+            <ul class="roadmap-list">
+              <li>✓ Live 3D Chess Tactics Prototype</li>
+              <li>✓ Live 3D Eco-Farming Grid Prototype</li>
+              <li>⏳ Art style & lighting research</li>
+              <li>⏳ Community alpha feedback collection</li>
+            </ul>
+          </div>
+
+          <div class="roadmap-card-3d">
+            <span class="roadmap-step-badge step-upcoming">Phase 2 • Upcoming</span>
+            <h3 class="roadmap-heading">Closed Playtest Alpha</h3>
+            <p style="font-size: 0.9375rem; color: var(--color-text-secondary); line-height: 1.5;">
+              Distributing private multi-level 3D builds to parents, educators, and early supporters on our waitlist.
+            </p>
+            <ul class="roadmap-list">
+              <li>• Private alpha playtest invitations</li>
+              <li>• Chess puzzle difficulty curve tuning</li>
+              <li>• Farming biomes and crop variety expansion</li>
+            </ul>
+          </div>
+
+          <div class="roadmap-card-3d">
+            <span class="roadmap-step-badge step-upcoming">Phase 3</span>
+            <h3 class="roadmap-heading">Public 3D Web Demos</h3>
+            <p style="font-size: 0.9375rem; color: var(--color-text-secondary); line-height: 1.5;">
+              Releasing the first standalone chapters of Grandmaster Quest and EcoTerra for public browser play.
+            </p>
+            <ul class="roadmap-list">
+              <li>• Full 3D browser campaigns</li>
+              <li>• Touch & iPad gesture controls</li>
+              <li>• Cloud save & progress milestones</li>
+            </ul>
+          </div>
+
+          <div class="roadmap-card-3d">
+            <span class="roadmap-step-badge step-upcoming">Phase 4</span>
+            <h3 class="roadmap-heading">Full Game Launch</h3>
+            <p style="font-size: 0.9375rem; color: var(--color-text-secondary); line-height: 1.5;">
+              Complete release of all planned titles, community sandbox level editors, and optional classroom toolkits.
+            </p>
+            <ul class="roadmap-list">
+              <li>• Multi-platform release</li>
+              <li>• Custom 3D level builders</li>
+              <li>• Educator curriculum alignment guides</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Studio Philosophy & Mission
+         ====================================================================== -->
+    <section class="section" id="vision" style="background-color: var(--color-surface); border-block: 1px solid var(--color-border);">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="badge-tag badge-secondary">Our Values</span>
+          <h2 class="section-title">Why 3D Spatial Learning Matters</h2>
+          <p class="section-desc">
+            Research consistently shows that learners grasp abstract mathematics and scientific systems significantly faster when they can manipulate and visualize models in 3D space.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          
+          <div class="feature-box card-3d">
+            <div class="feature-icon-wrap icon-purple">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3 class="feature-heading">Spatial & Geometric Intuition</h3>
+            <p class="feature-description">
+              Whether seeing knight moves across an isometric chessboard or observing water percolation through 3D soil strata, depth makes abstract concepts tangible.
+            </p>
+          </div>
+
+          <div class="feature-box card-3d">
+            <div class="feature-icon-wrap icon-amber">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+              </svg>
+            </div>
+            <h3 class="feature-heading">Systems-Level Thinking</h3>
+            <p class="feature-description">
+              Our games model interconnected feedback loops: how changing sunlight and irrigation affects soil nutrients, or how one chess move alters the balance of the entire board.
+            </p>
+          </div>
+
+          <div class="feature-box card-3d">
+            <div class="feature-icon-wrap icon-teal">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+            </div>
+            <h3 class="feature-heading">100% Ad-Free & Respectful</h3>
+            <p class="feature-description">
+              Zero pop-up advertisements, zero predatory loot mechanics, and zero intrusive tracking. Designed to foster pure focus and natural curiosity.
+            </p>
+          </div>
+
+          <div class="feature-box card-3d">
+            <div class="feature-icon-wrap icon-green">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <h3 class="feature-heading">Runs In Any Web Browser</h3>
+            <p class="feature-description">
+              Built with clean modern web technologies that run directly on Chromebooks, laptops, and tablets without requiring expensive GPUs or software downloads.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Pre-Launch FAQ
+         ====================================================================== -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-title-wrap">
+          <span class="badge-tag badge-secondary">FAQ</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-desc">
+            Answers regarding our upcoming 3D games, prototype playtests, and development schedule.
+          </p>
+        </div>
+
+        <div class="faq-wrap">
+          
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>Are these 3D games playable in ordinary web browsers?</span>
+              <span class="faq-icon-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes! Every prototype on this landing page is built using standard modern web technology (HTML5, CSS 3D transforms, and Vanilla JS). They run directly in Chrome, Edge, Safari, and Firefox without requiring software downloads, plugins, or gaming consoles.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>How can I join the private alpha playtests for Chess and Farming?</span>
+              <span class="faq-icon-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Simply sign up with your email in the waitlist section below. As we complete new chapters and levels for Grandmaster Quest and EcoTerra, we will email early access links directly to our community test group.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>What ages are the chess and farming games designed for?</span>
+              <span class="faq-icon-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                The games are designed with progressive scaffolding suitable for ages 7 through adulthood. EcoTerra starts with basic seed and water balance before introducing nitrogen and soil science. Grandmaster Quest begins with piece mechanics and advances to multi-step tactical sacrifices.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question-btn" aria-expanded="false">
+              <span>I am an educator or parent. Can I suggest curriculum topics?</span>
+              <span class="faq-icon-arrow">▼</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Absolutely! We welcome teachers and parents to help guide our puzzle scenarios and topic coverage. Subscribe to the waitlist and reply to our welcome email to connect with our developer team.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         Waitlist & Early Alpha Updates
+         ====================================================================== -->
+    <section class="section cta-banner-section" id="waitlist">
+      <div class="container">
+        <div class="cta-banner-card-3d">
+          <h2 class="cta-banner-title">Be the First to Play Our 3D Educational Worlds</h2>
+          <p class="cta-banner-desc">
+            Get development updates, behind-the-scenes 3D art, and private invitations to test upcoming chess and farming game builds. Zero spam, ever.
+          </p>
+
+          <form class="newsletter-form" id="newsletter-form" novalidate>
+            <input type="email" 
+                   class="newsletter-input" 
+                   id="newsletter-email" 
+                   placeholder="Enter your email address..." 
+                   required 
+                   aria-label="Email address for 3D game alpha access">
+            <button type="submit" class="btn btn-accent btn-lg btn-3d">Join 3D Playtest Waitlist</button>
+            <div class="form-feedback-msg" id="newsletter-feedback"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       Accessible Game Concept Dialog (Native <dialog>)
+       ======================================================================== -->
+  <dialog class="game-modal" id="game-modal" aria-labelledby="modal-game-title">
+    <div class="modal-content-card">
+      <div class="modal-header-bar">
+        <div>
+          <span class="badge-tag badge-primary" id="modal-game-badge" style="margin-bottom: 0.25rem; font-size: 0.7rem;">
+            In Development
+          </span>
+          <h3 class="modal-title" id="modal-game-title">Game Title</h3>
+        </div>
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Close dialog">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-interactive-stage">
+          <div style="font-size: 2.75rem; margin-bottom: 0.75rem;">🎲</div>
+          <h4 style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">3D Spatial Mechanics Preview</h4>
+          <p style="font-size: 0.875rem; color: #cbd5e1; max-width: 420px; margin-inline: auto;">
+            This title is in active 3D design and prototyping. We are crafting custom 3D models, camera perspectives, and educational problem mechanics.
+          </p>
+        </div>
+
+        <p id="modal-game-desc" style="font-size: 0.95rem; color: var(--color-text-secondary); line-height: 1.6; margin-bottom: 1.5rem;">
+          Concept notes go here.
+        </p>
+
+        <div class="modal-actions-row">
+          <button class="btn btn-secondary" onclick="document.getElementById('game-modal').close()">Close</button>
+          <a href="#waitlist" class="btn btn-primary" onclick="document.getElementById('game-modal').close()">Reserve Alpha Key</a>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ========================================================================
+       Site Footer
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div>
+          <a href="#hero" class="brand-logo">
+            <div class="brand-icon-3d">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <span>Joviraj</span>
+          </a>
+          <p class="footer-brand-desc">
+            An independent educational game studio pioneering spatial learning through interactive 3D chess, agriculture, and science.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Playable 3D Labs</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#chess-lab" class="footer-link">3D Chess Tactics Lab</a></li>
+            <li><a href="#farm-lab" class="footer-link">3D Eco-Farming Grid</a></li>
+            <li><a href="#upcoming-games" class="footer-link">Grandmaster Quest 3D</a></li>
+            <li><a href="#upcoming-games" class="footer-link">EcoTerra 3D Simulator</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Development</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#roadmap" class="footer-link">3D Release Roadmap</a></li>
+            <li><a href="#vision" class="footer-link">Spatial Learning Research</a></li>
+            <li><a href="#waitlist" class="footer-link">Join Playtest Alpha</a></li>
+            <li><a href="#faq" class="footer-link">Development FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Studio & Contact</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#vision" class="footer-link">Our Mission</a></li>
+            <li><a href="#waitlist" class="footer-link">Developer Contact</a></li>
+            <li><a href="#faq" class="footer-link">Community Playtests</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 Joviraj Studios. All rights reserved. In active pre-launch development.
+        </div>
+        <div style="font-size: 0.8125rem; color: var(--color-text-muted);">
+          Pure Modern Web Tech: CSS 3D Transforms, Web Audio API & HTML5 Canvas
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+</body>
+</html>
